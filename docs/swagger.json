@@ -1,0 +1,127 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API for managing videos.",
+        "title": "Video",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:2121",
+    "basePath": "/api/test/v1/",
+    "paths": {
+        "/videos/create-video": {
+            "post": {
+                "description": "Add New Video",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Videos"
+                ],
+                "summary": "Create Video",
+                "parameters": [
+                    {
+                        "description": "Video Data",
+                        "name": "video",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Video"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/videos/delete-video/{id}": {
+            "post": {
+                "description": "Delete Video",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Videos"
+                ],
+                "summary": "Delete Video",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Video ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/videos/get-videos": {
+            "get": {
+                "description": "Retrieve a list of videos from the database",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Videos"
+                ],
+                "summary": "Get all videos",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Video": {
+            "type": "object",
+            "properties": {
+                "duration": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
